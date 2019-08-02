@@ -1,0 +1,37 @@
+#VEERBECK (pg 198)
+
+###Logit / Probit
+
+##Install and Load Packages
+list.of.packages <- c("AER", "sandwich", "lmtest", "car", "dplyr", "stargazer", "ggplot2", "foreign",
+                      "openintro","OIdata", "gdata", "doBy","ivpack", "psych","plm", "readxl")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+lapply(list.of.packages, require, character.only = TRUE)
+##
+
+##Path to database
+##setwd("C:\Users\CarlosSchonerwald\OneDrive - Universidade Federal do Rio Grande do Sul\UFRGS\Orienta??es") # on PC
+
+setwd("C:/Users/Willians/Desktop/Mestrado/Econometria - Schonerwaldt")  # note / instead of \ in windows 
+database <- read.dta("C:/Users/Willians/Desktop/Mestrado/Econometria - Schonerwaldt/R Scripts/Data/unemployment_benefits/benefits.dta",  convert.factors=FALSE)
+
+head(database)
+summary(database)
+
+# coluna y = solicitou ou não seguro desemprego
+
+logit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, family = binomial(link = "logit"), 
+             data = database)
+summary (logit)
+
+probit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, family = binomial(link = "probit"), 
+              data = database)
+summary (probit)
+
+# quando a stateur (taxa de desemprego) está alta aciona o pedidos de seguro
+
+# LPM -> MQO normal
+
+lpm <- lm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, data = database)
+summary(lpm)
