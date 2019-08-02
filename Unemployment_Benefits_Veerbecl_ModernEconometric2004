@@ -19,7 +19,7 @@ database <- read.dta("C:/Users/Willians/Desktop/Mestrado/Econometria - Schonerwa
 head(database)
 summary(database)
 
-# coluna y = solicitou ou não seguro desemprego
+# coluna y = solicitou ou nÃ£o seguro desemprego
 
 logit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, family = binomial(link = "logit"), 
              data = database)
@@ -29,7 +29,7 @@ probit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + hea
               data = database)
 summary (probit)
 
-# quando a stateur (taxa de desemprego) está alta aciona o pedidos de seguro
+# quando a stateur (taxa de desemprego) estÃ¡ alta aciona o pedidos de seguro
 
 # LPM -> MQO normal
 
