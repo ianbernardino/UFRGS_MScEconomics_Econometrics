@@ -3,8 +3,6 @@ title: Marno Verbeek-A Guide to Modern Econometrics (2004) Unemplyment Benefit p
   198
 ---
 
-## Marno Verbeek-A Guide to Modern Econometrics (2004) Unemplyment Benefit pg
-
 ## Logit Probit Regression - Marno Verbeek-A Guide to Modern Econometrics (2004) pg 198
 
 ### 7.1.6 Illustration: the Impact of Unemployment Benefits on Recipiency
