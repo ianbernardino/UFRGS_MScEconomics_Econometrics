@@ -1,15 +1,7 @@
 ---
 title: Marno Verbeek-A Guide to Modern Econometrics (2004) Unemplyment Benefit pg
   198
-output:
-  word_document: default
-  pdf_document: default
-  html_document: default
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Marno Verbeek-A Guide to Modern Econometrics (2004) Unemplyment Benefit pg
 
