@@ -56,20 +56,20 @@ of the explanatory variables is also comparable. This is not an unusual finding.
 Qualitatively, the different models typically do not provide different answers. 
 
 # Set working directory:
-```
+
 setwd("C:/Users/Willians/Desktop/Mestrado/Econometria - Schonerwaldt")  # note / instead of \ in windows 
-```
+
 # Store the data from benefits.dta in an object (database):
-```
+
 database <- read.dta("C:/Users/Willians/Desktop/Mestrado/Econometria - Schonerwaldt/R Scripts/Data/unemployment_benefits/benefits.dta",  convert.factors=FALSE)
-```
+
 # Explore the data features (columns) and 5 Number Summary Stats
-```
+
 head(database)
 summary(database)
-```
+
 # Create a vector with the packages to be installed:
-```
+
 list.of.packages <- c("AER", "sandwich", "lmtest", "car", "dplyr", "stargazer", "ggplot2", "foreign",
                       "openintro","OIdata", "gdata", "doBy","ivpack", "psych","plm", "readxl")
 
@@ -78,21 +78,20 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 
 lapply(list.of.packages, require, character.only = TRUE)
-```
+
 # Logit Regression
-```
+
 logit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, family = binomial(link = "logit"), 
              data = database)
 summary (logit)
-```
+
 # Probit Regression
-```
+
 probit <- glm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, family = binomial(link = "probit"), 
               data = database)
 summary (probit)
-```
+
 # LPM -> MQO Normal Linear Regression
-```
+
 lpm <- lm(y ~ rr + rr2 + age + age2 + tenure + slack + abol + seasonal + head + married + dkids + dykids + smsa + nwhite + yrdispl + school12 + male + statemb + stateur, data = database)
 summary(lpm)
-```
